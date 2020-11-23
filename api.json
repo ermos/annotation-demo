@@ -1,0 +1,49 @@
+[
+ {
+  "controller": "SignUp",
+  "routes": [
+   {
+    "method": "POST",
+    "route": "/auth/signup"
+   }
+  ],
+  "middlewares": {},
+  "validate": {}
+ },
+ {
+  "controller": "SignIn",
+  "routes": [
+   {
+    "method": "POST",
+    "route": "/auth/signin"
+   }
+  ],
+  "authorization": [
+   "admin",
+   "user"
+  ],
+  "middlewares": {},
+  "response": [
+   200,
+   500
+  ],
+  "description": "sign in to the application",
+  "validate": {
+   "payload": [
+    {
+     "key": "username",
+     "type": "string"
+    },
+    {
+     "key": "password",
+     "type": "string"
+    },
+    {
+     "key": "2fa",
+     "type": "string",
+     "nullable": true
+    }
+   ]
+  }
+ }
+]
